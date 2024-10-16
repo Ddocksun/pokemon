@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>스타팅 포켓몬을 골라보자!</title>
+    <style>
+        @font-face {
+            font-family: 'galmuri9';
+            src: url('https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            font-family: 'galmuri9';
+        }
+
+        html, body {
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+            background-color: dimgray;
+        }
+
+        .rect {
+            width: 35vw;
+            height: 20vw;
+            background-color: lightgray;
+            z-index: 0;
+            border-radius: 3vw;
+            position: absolute;
+            left: 33%;
+        }
+
+        .rect2 {
+            width: 20vw;
+            height: 15vw;
+            background-color: #313131;
+            z-index: 1;
+            position: absolute;
+            left: 40.5%;
+        }
+
+        #toprect { top: 10%; }
+        #btrect { top: 50%; }
+        #toprect2 { top: 18%; }
+        #btrect2 { top: 52%; }
+
+        #enter {
+            z-index: 2;
+            font-size: 3rem;
+            position: absolute;
+            top: 66%;
+            left: 51%;
+            transform: translate(-50%, -50%);
+            color: white;
+            letter-spacing: 0rem;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        #enter2 {
+            z-index: 2;
+            font-size: 3rem;
+            position: absolute;
+            top: 66%;
+            left: 51%;
+            transform: translate(-50%, -50%);
+            color: white;
+            letter-spacing: 0rem;
+            animation: pulse 1s infinite;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        #logo {
+            width: 10vw;
+            height: auto;
+            z-index: 1;
+            position: absolute;
+            left: 45.5%;
+            top: 27%;
+            opacity: 1;
+            transition: opacity 1s;
+        }
+
+        #main {
+            width: 20vw;
+            height: auto;
+            z-index: 2;
+            position: absolute;
+            left: 40.5%;
+            top: 18%;
+            opacity: 0;
+            transition: opacity 3s;
+        }
+
+        #chat, #chat2 {
+            width: 19.5vw;
+            height: 5vw;
+            z-index: 2;
+            position: absolute;
+            left: 40.75%;
+            top: 37%;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        #chat2 { z-index: 5; }
+
+        #intro {
+            z-index: 2;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 41.8%;
+            left: 50.7%;
+            transform: translate(-50%, -50%);
+            color: #313131;
+            letter-spacing: 0rem;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+            line-height: 1.5;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        #c152, #c155, #c158, #c152-2, #c155-2, #c158-2 {
+            z-index: 6;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 41.8%;
+            left: 50.7%;
+            transform: translate(-50%, -50%);
+            color: #313131;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+            line-height: 1.5;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .Sbox {
+            width: 20vw;
+            height: 15vw;
+            background: linear-gradient(180deg, lightblue 25%, lightcyan 25%, lightcyan 50%, lightblue 50%, lightblue 75%, lightcyan 75%, lightcyan);
+            background-size: 28.28px 28.28px;
+            position: absolute;
+            left: 40.5%;
+            top: 18%;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        #p152, #p155, #p158 {
+            width: 5vw;
+            height: auto;
+            position: absolute;
+            z-index: 4;
+            opacity: 0;
+            transition: opacity 1s;
+            transition: transform 0.3s;
+        }
+
+        #p152 { left: 42%; top: 20%; }
+        #p155 { width: 6.5vw; height: auto; left: 52.5%; top: 22%; }
+        #p158 { width: 6vw; height: auto; left: 47.5%; top: 32%; }
+
+        .greentext { color: green; }
+        .redtext { color: red; }
+        .bluetext { color: blue; }
+    </style>
+</head>
+<body>
+    <div class="rect" id="toprect"></div>
+    <div class="rect" id="btrect"></div>
+    <div class="rect2" id="toprect2"></div>
+    <div class="rect2" id="btrect2"></div>
+    <div id="enter">Enter</div>
+    <div id="enter2"><&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></div>
+    <audio src="골드 29번 도로.mp3" id="GS" loop></audio>
+    <img src="Nintendo-Logo-2006-2016.png" id="logo">
+    <img src="하트골드메인.png" id="main">
+    <img src="말풍선.png" id="chat">
+    <img src="말풍선.png" id="chat2">
+    <img src="155.png" id="p155">
+    <img src="158.png" id="p158">
+    <img src="152.png" id="p152">
+    <div id="intro"></div>
+    <div id="c152">풀포켓몬 <span class="greentext">치코리타</span>를 선택했구나!</div>
+    <div id="c155">불포켓몬 <span class="redtext">브케인</span>을 선택했구나!</div>
+    <div id="c158">물포켓몬 <span class="bluetext">리아코</span>를 선택했구나!</div>
+    <div id="c152-2">잎사귀에서 달콤한 향기가 감돌고,<br> 얌전하며 햇볕을 쬐는 것을 좋아한단다.</div>
+    <div id="c155-2">겁이 많아 늘 몸을 웅크리고있지만,<br>습격당하면 불꽃으로 몸을 보호한단다.</div>
+    <div id="c158-2">턱으로 뭐든지 깨물어 부수기 때문에<br>어버이 트레이너라도 주의해야 한단다.</div>
+    <div class="Sbox"></div>
+
+    <script>
+        const audio = document.getElementById('GS');
+        audio.volume = 0.3;
+
+        let currentStep = 0;
+        let selectedIndex = 2;
+        const pokemonImages = [
+            document.getElementById('p152'),
+            document.getElementById('p155'),
+            document.getElementById('p158')
+        ];
+        const chat2 = document.getElementById('chat2');
+        const descriptions = [
+            document.getElementById('c152'),
+            document.getElementById('c155'),
+            document.getElementById('c158')
+        ];
+        const detailedDescriptions = [
+            document.getElementById('c152-2'),
+            document.getElementById('c155-2'),
+            document.getElementById('c158-2')
+        ];
+        const intro = document.getElementById('intro');
+        const Sbox = document.querySelector('.Sbox');
+        const enter2 = document.getElementById('enter2');
+
+        document.addEventListener('keydown', function(event) {
+            const logo = document.getElementById('logo');
+            const main = document.getElementById('main');
+
+            if (event.key === 'Enter') {
+                if (currentStep === 0) {
+                    logo.style.opacity = '0';
+                    main.style.opacity = '1';
+                    audio.play();
+                    currentStep++;
+                } else if (currentStep === 1) {
+                    main.style.opacity = '0';
+                    currentStep++;
+                } else if (currentStep === 2) {
+                    chat.style.opacity = '1'; 
+                    currentStep++;
+                    intro.style.opacity = '1';
+                    typeWriter(intro, "바깥은 혼자 돌아다니기엔 위험하단다!\n이 아이들 중 하나를 데려가렴!", 0);
+                } else if (currentStep === 3) {
+                    Sbox.style.opacity = '1';
+                    enter2.style.opacity = '1';
+                    pokemonImages.forEach(img => {
+                        img.style.opacity = '1';
+                        img.style.transform = 'scale(1)';
+                    });
+                    updatePokemonSelection();
+                    currentStep++;
+                } else if (currentStep === 4) {
+                    if (chat2.style.opacity === '0') {
+                        chat2.style.opacity = '1';
+                        descriptions[selectedIndex].style.opacity = '1';
+                    } else {
+                        descriptions[selectedIndex].style.opacity = '0';
+                        if (detailedDescriptions[selectedIndex].style.opacity === '0') {
+                            detailedDescriptions[selectedIndex].style.opacity = '1';
+                        } else {
+                            alert(`${descriptions[selectedIndex].textContent} 함께라면 어떤 모험도 즐거울 거란다!`);
+                            location.reload();
+                        }
+                    }
+                }
+            } else if (currentStep === 3 || currentStep === 4) {
+                if (event.key === 'ArrowLeft') {
+                    selectedIndex = (selectedIndex === 0) ? 2 : selectedIndex - 1;
+                    resetChatAndDescriptions();
+                    updatePokemonSelection();
+                } else if (event.key === 'ArrowRight') {
+                    selectedIndex = (selectedIndex === 2) ? 0 : selectedIndex + 1;
+                    resetChatAndDescriptions();
+                    updatePokemonSelection();
+                }
+            }
+        });
+
+        function updatePokemonSelection() {
+            pokemonImages.forEach((img, index) => {
+                img.style.transform = (index === selectedIndex) ? 'scale(1.2)' : 'scale(1)';
+            });
+        }
+
+        function resetChatAndDescriptions() {
+            chat2.style.opacity = '0';
+            descriptions.forEach(desc => desc.style.opacity = '0');
+            detailedDescriptions.forEach(desc => desc.style.opacity = '0');
+        }
+
+        function typeWriter(element, text, i) {
+            if (i < text.length) {
+                if (text.charAt(i) === '\n') {
+                    element.innerHTML += '<br>';
+                } else {
+                    element.innerHTML += text.charAt(i);
+                }
+                i++;
+                setTimeout(() => typeWriter(element, text, i), 50);
+            }
+        }
+    </script>
+</body>
+</html>
